@@ -1722,7 +1722,7 @@
 
         public function loadZoneRecords() {
             if ($this->is_complete()) {
-                $res = $this->db->query("SELECT id FROM records WHERE zone = " . $this->head['id']);
+                $res = $this->db->query("SELECT id FROM records WHERE zone = " . $this->head['id'] . " ORDER BY type,host");
                 if (MDB2::isError($res)) {
                     $this->err .= $res->getMessage() . "\n" . $res->getDebugInfo();
                     error_log($this->err);
