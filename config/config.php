@@ -9,7 +9,7 @@ $_CONF['smarty_path']   = '/usr/share/php/smarty3/';
 $_CONF['peardb_path']   = '/usr/share/php';
 $_CONF['title']         = 'MyOnline Primary NS management';
 $_CONF['footer']        = '<b>PRIMARY site</b> - Switch to <a class=attention href="https://service.myonline.hu/dnsslave/"><b>SECONDARY site</b></a> | You are from: <b>' . $_SERVER['REMOTE_ADDR'] . '</b>';
-$_CONF['recaptcha']     = true;
+$_CONF['recaptcha']     = false;
 $_CONF['rc_pubkey']     = '6LectQcTAAAAAGLTGJQpjM8eh8YEozuXYFqpLDqG';
 $_CONF['rc_privkey']    = '6LectQcTAAAAAGBDl7u5lrbVQmNYtlF37K2RkArR';
 $_CONF['nocaptcha']     = array (

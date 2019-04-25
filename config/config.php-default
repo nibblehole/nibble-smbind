@@ -8,4 +8,14 @@ $_CONF['db_port']       = '';
 $_CONF['db_db']         = '';
 $_CONF['smarty_path']   = '';
 $_CONF['peardb_path']   = '';
+$_CONF['title']         = 'Name of the website';
+$_CONF['footer']        = 'Footer string (HTML accepted)';
+$_CONF['recaptcha']     = false;
+$_CONF['rc_pubkey']     = '';
+$_CONF['rc_privkey']    = '';
+$_CONF['nocaptcha']     = array (
+                          );
+$_CONF['path']          = '/path/of/your/zones';
+$_CONF['conf']          = '/path/of/your/main/config';
+$_CONF['rollerconf']    = '/path/of/your/rollrec/config';
 ?>
