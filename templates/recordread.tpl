@@ -96,7 +96,7 @@
 </tr>
 {/section}
 </table>{else}<p>There are no other records in this zone at the moment.</p>{/if}
-<input type=hidden name=total value="{$smarty.section.i.total}">
+<input type=hidden name=total value="{$rcount}">
 </div></div>
 <div class=submit><input class=submit-button type=submit name=Submit value="Save">&nbsp;<input type=button class=submit-button id=cancel value="Cancel" name ="cancel"></div>
 </form>

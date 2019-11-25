@@ -1093,15 +1093,16 @@
                     $this->record['pri'] = 0;
                 }
                 if ((is_numeric($this->record['id'])) && ($this->record['id'] > 0)) {
-                    $res = $this->db->query("UPDATE records SET " .
+                    $sq = "UPDATE records SET " .
                         "zone = " . $this->record['zone'] . ", " .
                         "host = '" . $this->record['host'] . "', " .
                         "ttl = " . $this->record['ttl'] . ", " .
                         "type = '" . $this->record['type'] . "', " .
                         "pri = " . $this->record['pri'] . ", " .
                         "destination = '" . $this->record['destination'] .
-                        "' WHERE id = " . $this->record['id']
-                    );
+                        "' WHERE id = " . $this->record['id'];
+                    $res = $this->db->query($sq);
+//                    error_log($sq);
                     if (MDB2::isError($res)) {
                         $this->err .= $res->getMessage() . "\n" . $res->getDebugInfo();
                         error_log($this->err);
@@ -1115,14 +1116,15 @@
                         $this->record['id'] = $id;
                         return true;
                     } else {
-                        $res = $this->db->query("INSERT INTO records (zone, host, ttl, type, pri, destination) VALUES (" .
+                        $sq = "INSERT INTO records (zone, host, ttl, type, pri, destination) VALUES (" .
                             $this->record['zone'] . ", '" .
                             $this->record['host'] . "', " .
                             $this->record['ttl'] . ", '" .
                             $this->record['type'] . "', " .
                             $this->record['pri'] . ", '" .
-                            $this->record['destination'] . "')"
-                        );
+                            $this->record['destination'] . "')";
+                        $res = $this->db->query($sq);
+//                        error_log($sq);
                         if (MDB2::isError($res)) {
                             $this->err .= $res->getMessage() . "\n" . $res->getDebugInfo();
                             error_log($this->err);
@@ -1155,7 +1157,9 @@
 
         public function eraseRecord() {
             if ($this->is_identified()) {
-                $res = $this->db->query("DELETE FROM records WHERE id = " . $this->record['id']);
+                $sq = "DELETE FROM records WHERE id = " . $this->record['id'];
+//                error_log($sq);
+                $res = $this->db->query($sq);
                 if (MDB2::isError($res)) {
                     $this->err .= $res->getMessage() . "\n" . $res->getDebugInfo();
                     error_log($this->err);

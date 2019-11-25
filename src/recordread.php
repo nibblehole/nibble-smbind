@@ -31,6 +31,7 @@ if ($znum) {
         $smarty->assign("zone", $zonerec);
         $smarty->assign("pagetitle", "Editing master zone");
         $smarty->assign("rcount", sizeof($rec));
+//        error_log(sizeof($rec));
         $smarty->assign("record",$rec);
         $smarty->assign("types", $types);
         $smarty->assign("userlist", $users);

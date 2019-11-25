@@ -29,11 +29,14 @@ if ($znum) {
                     $nrec[$key] = (($key == 'host') && ($nrec[$key] == '')) ? '@' :$nrec[$key];
                     $nrec[$key] = (($key == 'destination') && ($nrec[$key] == '')) ? '@' :$nrec[$key];
                 }
-                if ($nrec['host'] != $nrec['destination']) {
-                    $urec = new masterRecord(intval($_POST['host_id'][$x]));
-                    $urec->loadRecord();
-                    $urec->setRecord($nrec);
-                    $xrec = $urec->getRecordRaw();
+                if (strtoupper($nrec['type']) != 'MX') $nrec['pri'] = '0';
+                $urec = new masterRecord(intval($_POST['host_id'][$x]));
+                $urec->loadRecord();
+                $xrec = serialize($urec->getRecordRaw());
+                $urec->setRecord($nrec);
+                $yrec = serialize($urec->getRecordRaw());
+                if ($xrec != $yrec) {
+//                    error_log($yrec . "#" . $xrec);
                     $urec->saveRecord();
                 }
             }
