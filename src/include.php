@@ -103,6 +103,7 @@ if($user->isAdmin()) {
     $smarty->assign("version", $conf->version);
 } else {
     $smarty->assign("admin", "no");
+    $smarty->assign("version", $conf->version);
 }
 
 /*
